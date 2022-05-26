@@ -96,3 +96,4 @@ echo "Please complete the setup at http://ip:81"
 echo "###################################################################"
 echo
 echo
+sudo python3 /opt/camectapi/app.py
