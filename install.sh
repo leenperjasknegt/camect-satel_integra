@@ -53,44 +53,37 @@ wget https://raw.githubusercontent.com/leenperjasknegt/camect-satel_integra/main
 wget https://raw.githubusercontent.com/leenperjasknegt/camect-satel_integra/main/templates/index.html
 wget https://raw.githubusercontent.com/leenperjasknegt/camect-satel_integra/main/templates/setup.html
 wget https://raw.githubusercontent.com/leenperjasknegt/camect-satel_integra/main/app.py
-wget https://raw.githubusercontent.com/leenperjasknegt/camect-satel_integra/main/flask.service
 sudo mkdir /opt/camectapi
 sudo mkdir /opt/camectapi/templates
 sudo mv demo.py /usr/local/lib/python3.8/dist-packages/IntegraPy/demo.py
 sudo mv camect.service /etc/systemd/system/camect.service
-sudo mv flask.service /etc/systemd/system/flask.service
 sudo mv index.html /opt/camectapi/templatesindex.html
 sudo mv setup.html /opt/camectapi/templatessetup.html
 sudo mv app.py /opt/camectapi/app.py
 echo
 echo
 echo "###################################################################"
-echo "Creating Camect & Webserver Service"
+echo "Creating Camect Service"
 echo "###################################################################"
 echo
 sudo systemctl stop camect.service
-sudo systemctl stop flask.service
-sleep 1
+sleep 2
 sudo systemctl daemon-reload
 sleep 1
 sudo systemctl enable camect.service
-sudo systemctl enable flask.service
 echo
 
 echo "###################################################################"
-echo "Start Camect & Webserver Service"
+echo "Start Camect Service"
 echo "###################################################################"
 echo
 sleep 1
 sudo systemctl start camect.service
 echo
-sudo systemctl start flask.service
-echo
 sleep 2
 echo
 sudo systemctl status camect.service
 echo
-sudo systemctl status flask.service
 echo "###################################################################"
 echo "INSTALLATION SUCCESFULL!"
 echo "Please complete the setup at http://ip:81"
