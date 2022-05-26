@@ -57,8 +57,8 @@ sudo mkdir /opt/camectapi
 sudo mkdir /opt/camectapi/templates
 sudo mv demo.py /usr/local/lib/python3.8/dist-packages/IntegraPy/demo.py
 sudo mv camect.service /etc/systemd/system/camect.service
-sudo mv index.html /opt/camectapi/templatesindex.html
-sudo mv setup.html /opt/camectapi/templatessetup.html
+sudo mv index.html /opt/camectapi/templates/index.html
+sudo mv setup.html /opt/camectapi/templates/setup.html
 sudo mv app.py /opt/camectapi/app.py
 echo
 echo
