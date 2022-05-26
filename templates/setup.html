@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camect Setup</title>
+</head>
+<body>
+    <h1>Camect Setup</h1>
+    <form action="{{ url_for("config")}}" method="post">
+        <label for="camect_url">Camect URL</label>
+        <input type="text" id="camect_url" name="camect_url" placeholder="Camect URL">
+        <br>
+        <label for="admin_pwd">Camect password</label>
+        <input type="text" id="admin_pwd" name="admin_pwd" placeholder="Camect password">
+        <br>
+        <label for="integra_ip">Integra IP</label>
+        <input type="text" id="integra_ip" name="integra_ip" placeholder="Integra IP">
+        <br>
+        <label for="partition_name">Partition name</label>
+        <input type="text" id="partition_name" name="partition_name" placeholder="Partition name">
+        <br>
+        <label for="zone_name">Zone name</label>
+        <input type="text" id="zone_name" name="zone_name" placeholder="Zone name">
+        <br>
+        <label for="inverse_zone">Inverse zone</label>
+        <input type="text" id="inverse_zone" name="inverse_zone" placeholder="Inverse zone">
+        <hr>
+        <button type="submit">Save</button>    
+</body>
+</html>
