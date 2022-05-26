@@ -53,7 +53,7 @@ wget https://raw.githubusercontent.com/leenperjasknegt/camect-satel_integra/main
 wget https://raw.githubusercontent.com/leenperjasknegt/camect-satel_integra/main/templates/index.html
 wget https://raw.githubusercontent.com/leenperjasknegt/camect-satel_integra/main/templates/setup.html
 wget https://raw.githubusercontent.com/leenperjasknegt/camect-satel_integra/main/app.py
-mkdir /opt/camectapi
+sudo mkdir /opt/camectapi
 sudo mv demo.py /usr/local/lib/python3.8/dist-packages/IntegraPy/demo.py
 sudo mv camect.service /etc/systemd/system/camect.service
 sudo mv index.html /op/camectapi/index.html
