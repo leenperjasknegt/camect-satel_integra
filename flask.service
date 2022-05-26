@@ -6,7 +6,7 @@ StartLimitIntervalSec=0
 User=administrator
 Type=simple
 Restart=always
-ExecStart=/usr/bin/python3 /op/camectapi/app.py
+ExecStart=/usr/bin/python3 /opt/camectapi/app.py
 RestartSec=5
 [Install]
 WantedBy=multi-user.target
