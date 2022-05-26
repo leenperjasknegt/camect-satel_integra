@@ -1,0 +1,12 @@
+[Unit]
+Description= Camect
+After=multi-user.target
+StartLimitIntervalSec=0
+[Service]
+User=administrator
+Type=simple
+Restart=always
+ExecStart=/usr/bin/python3 -m IntegraPy.demo 192.168.0.40
+RestartSec=5
+[Install]
+WantedBy=multi-user.target
