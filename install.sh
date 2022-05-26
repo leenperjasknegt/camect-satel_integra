@@ -57,7 +57,7 @@ sudo mkdir /opt/camectapi
 sudo mv demo.py /usr/local/lib/python3.8/dist-packages/IntegraPy/demo.py
 sudo mv camect.service /etc/systemd/system/camect.service
 sudo mv index.html /opt/camectapi/index.html
-sudo mv setup.html /opt/camectapi/index.html
+sudo mv setup.html /opt/camectapi/setup.html
 sudo mv app.py /opt/camectapi/app.py
 echo
 echo
@@ -81,7 +81,7 @@ echo
 sleep 1
 sudo systemctl start camect.service
 echo
-sudo systemcll start flask.service
+sudo systemctl start flask.service
 echo
 sleep 2
 echo
