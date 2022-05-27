@@ -1,32 +1,177 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Camect Setup</title>
-</head>
-<body>
-    <h1>Camect Setup</h1>
-    <form action="{{ url_for("config")}}" method="post">
-        <label for="camect_url">Camect URL</label>
-        <input type="text" id="camect_url" name="camect_url" placeholder="Camect URL">
-        <br>
-        <label for="admin_pwd">Camect password</label>
-        <input type="text" id="admin_pwd" name="admin_pwd" placeholder="Camect password">
-        <br>
-        <label for="integra_ip">Integra IP</label>
-        <input type="text" id="integra_ip" name="integra_ip" placeholder="Integra IP">
-        <br>
-        <label for="partition_name">Partition name</label>
-        <input type="text" id="partition_name" name="partition_name" placeholder="Partition name">
-        <br>
-        <label for="zone_name">Zone name</label>
-        <input type="text" id="zone_name" name="zone_name" placeholder="Zone name">
-        <br>
-        <label for="inverse_zone">Inverse zone</label>
-        <input type="text" id="inverse_zone" name="inverse_zone" placeholder="Inverse zone">
+<html>
+  <head>
+    <title>Camect - Satel Integra API</title>
+    <style>
+      html, body {
+      min-height: 100%;
+      }
+      body, p { 
+      padding: 0;
+      margin: 0;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      line-height: 24px;
+      color: #666;
+      }
+      .main-block {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      }
+      form {
+      width: 100%;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 2px 5px #ccc; 
+      }
+      h1 {
+      font-weight: 400;
+      line-height: 28px;
+      }
+      hr {
+      margin: 20px 0;
+      }
+      span.required {
+      color: red;
+      }
+      .personal-details, .question-block, .statements-block {
+      padding-bottom: 20px;
+      }
+      .personal-details >div {
+      display: flex;
+      flex-direction: column;
+      }
+      input {
+      padding: 8px 5px;
+      margin-bottom: 10px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+      outline: none;
+      vertical-align: midle;
+      horizontal-align: midle;
+      }
+      input:hover, textarea:hover {
+      outline: none;
+      border: 1px solid #095484;
+      }
+      .question, .answer, table, textarea {
+      width: 100%;
+      }
+      .answer input, table input {
+      width: auto;
+      }
+      th, td {
+      width: 14%;
+      padding: 10px 0;
+      border-bottom: 1px solid #ccc;
+      text-align: center;
+      vertical-align: unset;
+      line-height: 18px;
+      font-weight: 400;
+      word-break: break-all;
+      }
+      .first-col {
+      width: 30%;
+      text-align: left;
+      }
+      small {
+      display: block;
+      line-height: 18px;
+      opacity: 0.5;
+      }
+      .btn-block {
+      text-align: center;
+      }
+      button {
+      width: 150px;
+      padding: 10px;
+      border-radius: 5px; 
+      border: none;
+      background: #095484; 
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      }
+      button:hover {
+      background: #0666a3;
+      }
+      @media (min-width: 568px) {
+      .personal-details >div {
+      flex-direction: row;
+      align-items: center;
+      }
+      label {
+      width: 130px;
+      }
+      input {
+      width: calc((100% - 10px)/2);
+      }
+      input.input-field, input.seminar-title {
+      margin: 0 5px 10px;
+      }
+      .question-block {
+      display: flex;
+      justify-content: space-between;
+      }
+      .question, .answer {
+      width: 50%;
+      }
+      th, td {
+      word-break: keep-all;
+      }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-block">
+      <form action="{{ url_for("config")}}" method="post">
+        <h1>Camect - Satel Integra API</h1>
+        <p>Configure the Camect API here to make a connection with the Satel Integra ETHM.</p>
         <hr>
-        <button type="submit">Save</button>    
-</body>
+        <div class="personal-details">
+        <p>Visit https://local.home.camect.com/ and type in the address WITH "https://" and WITHOUT the "/" at the end.</p>
+        <div>
+       
+        <label for="camect_url">Camect URL<span class="required"> *</span></label>
+        <input class="input-field" type="text" id="camect_url" name="camect_url" placeholder="https://fbcv8902.l.home.camect.com">
+         </div>
+         <p>Password is the email prefix by which the Camect is setup. For example service@company.com; the prefix is "service".</p>
+          <div>
+      
+        <label for="admin_pwd">Camect password<span class="required"> *</span></label>
+        <input class="input-field" type="text" id="admin_pwd" name="admin_pwd" placeholder="service">
+         </div>
+                <p>Make sure the Satel Integra is set to a static IP address!</p>
+          <div>
+ 
+        <label for="integra_ip">Integra IP<span class="required"> *</span></label>
+        <input class="input-field" type="text" id="integra_ip" name="integra_ip" placeholder="192.168.0.40">
+         </div>
+                <p>The partition name can't include special caracters. For example '.</p>
+          <div>
+        
+        <label for="partition_name">Partition name<span class="required"> *</span></label>
+        <input class="input-field" type="text" id="partition_name" name="partition_name" placeholder="Camera">
+         </div>
+         <p>If you want to block the alerts when a specific zone is open type in the UNIQUE zonename in here.</p>
+          <div>
+        
+        <label for="zone_name">Zone name</span></label>
+        <input class="input-field" type="text" id="zone_name" name="zone_name" placeholder="Poort">
+         </div>
+         <p>By default the zone must be closed for the alerts to be working. If you want the zone to be NO instead of NC type in "not". If you leave the field empty it will be NO.</p>
+          <div>
+        <label for="inverse_zone">Inverse zone</span></label>
+        <input class="input-field" type="text" id="inverse_zone" name="inverse_zone" placeholder="not">
+         </div>
+         
+          
+        
+        <div class="btn-block">
+          <button type="submit" href="/">Save</button>
+        </div>
+      </form>
+          </div>
+  </body>
 </html>
