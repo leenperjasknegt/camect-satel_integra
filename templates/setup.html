@@ -152,13 +152,13 @@
           <div>
         
         <label for="partition_name">Partition name<span class="required"> *</span></label>
-        <input class="input-field" type="text" id="partition_name" name="partition_name" placeholder="Camera">
+        <input class="input-field" type="text" id="partition_name" name="partition_name" pattern="[^'\x22]+" title="No special characters like : '" placeholder="Camera">
          </div>
          <p>If you want to block the alerts when a specific zone is open type in the UNIQUE zonename in here.</p>
           <div>
         
         <label for="zone_name">Zone name</span></label>
-        <input class="input-field" type="text" id="zone_name" name="zone_name" placeholder="Poort">
+        <input class="input-field" type="text" id="zone_name" name="zone_name" pattern="[^'\x22]+" title="No special characters like : '" placeholder="Poort">
          </div>
          <p>By default the zone must be closed for the alerts to be working. If you want the zone to be NO instead of NC type in "not". If you leave the field empty it will be NO.</p>
           <div>
