@@ -30,7 +30,7 @@ echo
 if python -c 'import pkgutil; exit(not pkgutil.find_loader("flask"))'; then
   echo
   echo "###################################################################"
-  echo "Installing Wget"
+  echo "Installing Flask"
   echo "###################################################################"
   echo
   sudo pip3 install flask
