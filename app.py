@@ -18,7 +18,7 @@ app = Flask(__name__)
 
 def index():
     if mode == 'RUN':
-        with open('config.json') as f:
+        with open('/opt/camectapi/config.json') as f:
             conf_dict = json.load(f)
         return render_template('index.html', camect_url=conf_dict['camect_url'],
                                 admin_pwd=conf_dict['admin_pwd'], integra_ip=conf_dict['integra_ip'], 
@@ -40,7 +40,7 @@ def config():
         inverse_zone = request.form.get("inverse_zone") 
 
         conf_dict = {"camect_url": camect_url, "admin_pwd": admin_pwd, "integra_ip": integra_ip, "partition_name": partition_name, "zone_name": zone_name, "inverse_zone": inverse_zone,}
-        with open('config.json', 'w') as f:
+        with open('/opt/camectapi/config.json', 'w') as f:
             json.dump(conf_dict, f)
 
 # Read the Integra IP and edit the Systemd file with the correct IP
@@ -58,7 +58,7 @@ def config():
 
 if __name__ == '__main__':
     try:
-        with open('config.json') as f:
+        with open('/opt/camectapi/config.json') as f:
             config_dict = json.load(f)
         mode = 'RUN'
     except:
