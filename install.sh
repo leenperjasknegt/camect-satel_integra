@@ -27,16 +27,13 @@ then
   sudo apt install wget;
 fi
 echo
-if python -c 'import pkgutil; exit(not pkgutil.find_loader("flask"))'; then
-  echo
-  echo "###################################################################"
-  echo "Installing Flask"
-  echo "###################################################################"
-  echo
-  sudo pip3 install flask
-else
-    echo "Flask already installed"
-fi
+echo
+echo "###################################################################"
+echo "Installing Flask"
+echo "###################################################################"
+echo
+sudo pip3 install flask
+echo
 echo
 echo "###################################################################"
 echo "Installing IntegraPy"
