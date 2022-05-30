@@ -13,6 +13,6 @@ bash <(curl -s0 https://raw.githubusercontent.com/leenperjasknegt/camect-satel_i
 If you want to change some settings after installation:
 
 ```
-bash /opt/camectapi/config.sh
+bash /opt/camectapi/setup.sh
 ```
 
