@@ -17,7 +17,7 @@ camecturl = config['camect_url']
 camectpassword = config['admin_pwd']
 integrazone = config['zone_name']
 integrapartition = config['partition_name']
-camecturlfull = camecturl + '/api/EnableAlert'
+camecturlfull = camecturl + '/api/SetOperationMode'
 
 template = '''\
 Model:            {0[model]}
@@ -46,10 +46,10 @@ armed_partitions = ', '.join(
 def checkArmStatus():
     if integrapartition in armed_partitions and not integrazone in violated_zones :
            print ("Armed")
-           r = requests.post(camecturlfull, data={'Enable': '0'}, verify=False, auth=('admin', camectpassword))
+           r = requests.post(camecturlfull, data={'Mode': 'DEFAULT'}, verify=False, auth=('admin', camectpassword))
     else:
            print ("Disarmed")
-           r = requests.post(camecturlfull, verify=False, auth=('admin', camectpassword))
+           r = requests.post(camecturlfull, data={'Mode': 'HOME'}, verify=False, auth=('admin', camectpassword))
 
 
 while(True):
