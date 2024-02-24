@@ -112,16 +112,16 @@ ipv4=$(get_ipv4)
 
 #sudo systemctl status camect.service
 echo
-echo "###################################################################"
+echo -e "\e[1;42m ################################################################### \e[0m"
 echo -e "\e[1;42m INSTALLATION SUCCESFULL! \e[0m"
 # Check if IPv4 address is obtained successfully
 if [ -n "$ipv4" ]; then
-    echo -e "\e[1;44m Please complete the setup: http://$ipv4:81 \e[0m"
+    echo "Please complete the setup: http://$ipv4:81"
 else
     echo -e "\e[1;41m Failed to retrieve IPv4 address. \e[0m"
 fi
 #echo -e "\e[1;41m Please complete the setup at http://ip:81 \e[0m"
-echo "###################################################################"
+echo -e "\e[1;42m ################################################################### \e[0m"
 echo
 echo
 sudo python3 /opt/camectapi/app.py
