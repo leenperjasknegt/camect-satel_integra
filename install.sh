@@ -125,3 +125,5 @@ echo -e "\e[1;42m ##############################################################
 echo
 echo
 sudo python3 /opt/camectapi/app.py
+alias -p camect-setup='sudo python3 /opt/camectapi/app.py'
+
