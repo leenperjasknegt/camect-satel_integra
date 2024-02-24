@@ -99,7 +99,7 @@ sudo systemctl start camect.service
 echo
 sleep 2
 echo
-sudo systemctl status camect.service
+#sudo systemctl status camect.service
 echo
 echo "###################################################################"
 echo "INSTALLATION SUCCESFULL!"
