@@ -125,5 +125,28 @@ echo -e "\e[1;42m ##############################################################
 echo
 echo
 sudo python3 /opt/camectapi/app.py
+
 alias -p camect-setup='sudo python3 /opt/camectapi/app.py'
+alias -p camect-status='sudo systemctl status camect.service'
+
+# Define the first alias command
+alias_command1="alias camect-setup='sudo python3 /opt/camectapi/app.py'"
+# Define the second alias command
+alias_command2="alias camect-status='sudo systemctl status camect.service'"
+
+# Function to add an alias to .bashrc if it's not already present
+add_alias_to_bashrc() {
+    local alias_command="$1"
+    if ! grep -qxF "$alias_command" ~/.bashrc; then
+        echo "$alias_command" >> ~/.bashrc
+        echo "Alias added to .bashrc"
+    else
+        echo "Alias already exists in .bashrc"
+    fi
+}
+
+# Add the first alias command
+add_alias_to_bashrc "$alias_command1"
+# Add the second alias command
+add_alias_to_bashrc "$alias_command2"
 
