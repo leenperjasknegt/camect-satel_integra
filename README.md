@@ -13,6 +13,12 @@ sudo apt install curl
 If you want to change some settings after installation:
 
 ```
+camect-setup
+```
+
+or
+
+```
 bash /opt/camectapi/setup.sh
 ```
 
