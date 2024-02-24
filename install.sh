@@ -57,7 +57,20 @@ sudo mkdir /opt/camectapi
 sudo mkdir /opt/camectapi/templates
 sudo mv setup.sh /opt/camectapi/setup.sh
 sudo chmod +x /opt/camectapi/setup.sh
-sudo mv demo.py /usr/local/lib/python3.8/dist-packages/IntegraPy/demo.py
+
+
+# Get the Python version
+python_version=$(python3 -c 'import sys; print(f"{sys.version_info[0]}.{sys.version_info[1]}")')
+
+# Construct the destination directory path
+dest_dir="/usr/local/lib/python${python_version}/dist-packages/IntegraPy"
+
+# Move the file to the destination directory
+sudo mv demo.py "${dest_dir}/demo.py"
+
+
+#sudo mv demo.py /usr/local/lib/python3.8/dist-packages/IntegraPy/demo.py
+
 sudo mv camect.service /etc/systemd/system/camect.service
 sudo mv index.html /opt/camectapi/templates/index.html
 sudo mv setup.html /opt/camectapi/templates/setup.html
