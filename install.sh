@@ -99,11 +99,28 @@ sudo systemctl start camect.service
 echo
 sleep 2
 echo
+# Function to get IPv4 address
+get_ipv4() {
+    # Use ip command to get IPv4 address of non-loopback interface
+    ip_address=$(ip -4 addr show scope global | grep inet | awk '{print $2}' | cut -d'/' -f1 | head -n1)
+    echo "$ip_address"
+}
+
+# Get the IPv4 address
+ipv4=$(get_ipv4)
+
+
 #sudo systemctl status camect.service
 echo
 echo "###################################################################"
-echo "INSTALLATION SUCCESFULL!"
-echo "Please complete the setup at http://ip:81"
+echo -e "\e[1;41m INSTALLATION SUCCESFULL! \e[0m"
+# Check if IPv4 address is obtained successfully
+if [ -n "$ipv4" ]; then
+    echo "\e[1;41m Please complete the setup: http://$ipv4:81 \e[0m"
+else
+    echo "Failed to retrieve IPv4 address."
+fi
+#echo -e "\e[1;41m Please complete the setup at http://ip:81 \e[0m"
 echo "###################################################################"
 echo
 echo
